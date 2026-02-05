@@ -8,8 +8,8 @@
 
 ## Feature Roadmap
 ### Phase 1: Core Calculators (Iteration 1)
-- [ ] BMI, BMR, TDEE Calculators (Mifflin-St Jeor)
-- [ ] Profile setup (Age, Gender, Weight, Height, Activity)
+- [x] BMI, BMR, TDEE Calculators (Mifflin-St Jeor)
+- [x] Profile setup (Age, Gender, Weight, Height, Activity)
 - [ ] Recommended Daily Intake (RDA) Logic
 
 ### Phase 2: Food Search & Logging (Iteration 2)
@@ -29,3 +29,4 @@
 
 ## Implementation Log
 - **2026-02-05**: Initialized repo `nutriflow`. Created `spec.md`.
+- **2026-02-05**: Implemented BMI and BMR calculators using Mifflin-St Jeor equation in `src/lib/calculators.ts`. Created UI component `src/components/Calculators.tsx` with profile input form and calculation results display. Added weight goal calorie recommendations.
