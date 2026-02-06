@@ -35,30 +35,30 @@ export default function Calculators() {
 
       {/* Input Form */}
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h2 className="text-xl font-semibold mb-4">Your Profile</h2>
+        <h2 className="text-xl font-semibold mb-4 text-gray-900">Your Profile</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
               Age (years)
             </label>
             <input
               type="number"
               value={profile.age}
               onChange={(e) => handleProfileChange('age', parseInt(e.target.value))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               min="1"
               max="120"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
               Gender
             </label>
             <select
               value={profile.gender}
               onChange={(e) => handleProfileChange('gender', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
             >
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -66,14 +66,14 @@ export default function Calculators() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
               Weight (kg)
             </label>
             <input
               type="number"
               value={profile.weight}
               onChange={(e) => handleProfileChange('weight', parseFloat(e.target.value))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               min="20"
               max="300"
               step="0.1"
@@ -81,27 +81,27 @@ export default function Calculators() {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
               Height (cm)
             </label>
             <input
               type="number"
               value={profile.height}
               onChange={(e) => handleProfileChange('height', parseFloat(e.target.value))}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               min="100"
               max="250"
             />
           </div>
 
           <div className="md:col-span-2">
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-bold text-gray-900 mb-2">
               Activity Level
             </label>
             <select
               value={profile.activityLevel}
               onChange={(e) => handleProfileChange('activityLevel', e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
             >
               <option value="sedentary">Sedentary (little to no exercise)</option>
               <option value="lightly_active">Lightly Active (light exercise 1-3 days/week)</option>
@@ -117,17 +117,17 @@ export default function Calculators() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* BMI Card */}
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold mb-3">Body Mass Index (BMI)</h3>
+          <h3 className="text-lg font-bold mb-3 text-gray-900">Body Mass Index (BMI)</h3>
           <div className="text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">
               {bmiResult.bmi}
             </div>
-            <div className={`text-sm font-medium px-3 py-1 rounded-full inline-block ${
+            <div className={`text-sm font-bold px-3 py-1 rounded-full inline-block ${
               bmiResult.isHealthy ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
             }`}>
               {bmiResult.category}
             </div>
-            <p className="text-gray-600 text-sm mt-3">
+            <p className="text-gray-900 font-medium text-sm mt-3">
               Normal range: 18.5 - 24.9
             </p>
           </div>
@@ -135,15 +135,15 @@ export default function Calculators() {
 
         {/* BMR Card */}
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold mb-3">Basal Metabolic Rate (BMR)</h3>
+          <h3 className="text-lg font-bold mb-3 text-gray-900">Basal Metabolic Rate (BMR)</h3>
           <div className="text-center">
             <div className="text-3xl font-bold text-green-600 mb-2">
               {bmrResult.bmr}
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-gray-900 font-medium text-sm">
               calories/day
             </div>
-            <p className="text-gray-600 text-sm mt-3">
+            <p className="text-gray-900 font-medium text-sm mt-3">
               {bmrResult.description}
             </p>
           </div>
@@ -151,15 +151,15 @@ export default function Calculators() {
 
         {/* TDEE Card */}
         <div className="bg-white rounded-lg shadow-md p-6">
-          <h3 className="text-lg font-semibold mb-3">Total Daily Energy Expenditure</h3>
+          <h3 className="text-lg font-bold mb-3 text-gray-900">Total Daily Energy Expenditure</h3>
           <div className="text-center">
             <div className="text-3xl font-bold text-purple-600 mb-2">
               {tdeeResult.tdee}
             </div>
-            <div className="text-gray-600 text-sm">
+            <div className="text-gray-900 font-medium text-sm">
               calories/day
             </div>
-            <p className="text-gray-600 text-sm mt-3">
+            <p className="text-gray-900 font-medium text-sm mt-3">
               {tdeeResult.description}
             </p>
           </div>
@@ -168,9 +168,9 @@ export default function Calculators() {
 
       {/* Weight Goal Calories */}
       <div className="bg-white rounded-lg shadow-md p-6">
-        <h3 className="text-lg font-semibold mb-4">Calorie Goals</h3>
+        <h3 className="text-lg font-bold mb-4 text-gray-900">Calorie Goals</h3>
         <div className="flex flex-wrap gap-4 mb-4">
-          <label className="flex items-center">
+          <label className="flex items-center text-gray-900 font-bold">
             <input
               type="radio"
               name="weightGoal"
@@ -181,7 +181,7 @@ export default function Calculators() {
             />
             Lose Weight
           </label>
-          <label className="flex items-center">
+          <label className="flex items-center text-gray-900 font-bold">
             <input
               type="radio"
               name="weightGoal"
@@ -192,7 +192,7 @@ export default function Calculators() {
             />
             Maintain Weight
           </label>
-          <label className="flex items-center">
+          <label className="flex items-center text-gray-900 font-bold">
             <input
               type="radio"
               name="weightGoal"
@@ -208,7 +208,7 @@ export default function Calculators() {
           <div className="text-2xl font-bold text-orange-600">
             {goalCalories} calories/day
           </div>
-          <p className="text-gray-600 text-sm mt-2">
+          <p className="text-gray-900 font-medium text-sm mt-2">
             {weightGoal === 'lose' && 'Target deficit of 500 calories for ~1 lb/week loss'}
             {weightGoal === 'maintain' && 'Maintain your current weight'}
             {weightGoal === 'gain' && 'Target surplus of 500 calories for ~1 lb/week gain'}
