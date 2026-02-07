@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { calculateBMI, calculateBMR, calculateTDEE, getWeightGoalCalories, UserProfile } from '@/lib/calculators';
+import { getRDATargets } from '@/lib/rda';
+import RDADisplay from './RDADisplay';
 
 export default function Calculators() {
   const [profile, setProfile] = useState<UserProfile>({
@@ -18,6 +20,7 @@ export default function Calculators() {
   const bmrResult = calculateBMR(profile);
   const tdeeResult = calculateTDEE(profile);
   const goalCalories = getWeightGoalCalories(tdeeResult.tdee, weightGoal);
+  const rdaTargets = getRDATargets(profile.age, profile.gender, tdeeResult.tdee, profile.weight);
 
   const handleProfileChange = (field: keyof UserProfile, value: string | number) => {
     setProfile(prev => ({
@@ -215,6 +218,9 @@ export default function Calculators() {
           </p>
         </div>
       </div>
+
+      {/* RDA Display */}
+      <RDADisplay rdaTargets={rdaTargets} />
     </div>
   );
 }

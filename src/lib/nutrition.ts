@@ -7,7 +7,27 @@ export interface MacroTargets {
   fat: number;
 }
 
-export interface NutritionSummary {
+export interface MicronutrientData {
+  vitamin_a?: number; // mcg
+  vitamin_c?: number; // mg
+  vitamin_d?: number; // mcg
+  vitamin_e?: number; // mg
+  vitamin_k?: number; // mcg
+  vitamin_b1?: number; // mg (thiamin)
+  vitamin_b2?: number; // mg (riboflavin)
+  vitamin_b3?: number; // mg (niacin)
+  vitamin_b6?: number; // mg
+  vitamin_b9?: number; // mcg (folate)
+  vitamin_b12?: number; // mcg
+  calcium?: number; // mg
+  iron?: number; // mg
+  magnesium?: number; // mg
+  zinc?: number; // mg
+  potassium?: number; // mg
+  sodium?: number; // mg
+}
+
+export interface NutritionSummary extends MicronutrientData {
   calories: number;
   protein: number;
   carbs: number;
@@ -75,6 +95,23 @@ export function sumNutrition(entries: NutritionSummary[]): NutritionSummary {
       fat: total.fat + entry.fat,
       fiber: total.fiber + entry.fiber,
       sugar: total.sugar + entry.sugar,
+      vitamin_a: (total.vitamin_a || 0) + (entry.vitamin_a || 0),
+      vitamin_c: (total.vitamin_c || 0) + (entry.vitamin_c || 0),
+      vitamin_d: (total.vitamin_d || 0) + (entry.vitamin_d || 0),
+      vitamin_e: (total.vitamin_e || 0) + (entry.vitamin_e || 0),
+      vitamin_k: (total.vitamin_k || 0) + (entry.vitamin_k || 0),
+      vitamin_b1: (total.vitamin_b1 || 0) + (entry.vitamin_b1 || 0),
+      vitamin_b2: (total.vitamin_b2 || 0) + (entry.vitamin_b2 || 0),
+      vitamin_b3: (total.vitamin_b3 || 0) + (entry.vitamin_b3 || 0),
+      vitamin_b6: (total.vitamin_b6 || 0) + (entry.vitamin_b6 || 0),
+      vitamin_b9: (total.vitamin_b9 || 0) + (entry.vitamin_b9 || 0),
+      vitamin_b12: (total.vitamin_b12 || 0) + (entry.vitamin_b12 || 0),
+      calcium: (total.calcium || 0) + (entry.calcium || 0),
+      iron: (total.iron || 0) + (entry.iron || 0),
+      magnesium: (total.magnesium || 0) + (entry.magnesium || 0),
+      zinc: (total.zinc || 0) + (entry.zinc || 0),
+      potassium: (total.potassium || 0) + (entry.potassium || 0),
+      sodium: (total.sodium || 0) + (entry.sodium || 0),
     }),
     {
       calories: 0,
