@@ -46,7 +46,7 @@ export default function Calculators() {
             </label>
             <input
               type="number"
-              value={profile.age}
+              value={isNaN(profile.age) ? '' : profile.age}
               onChange={(e) => handleProfileChange('age', parseInt(e.target.value))}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               min="1"
@@ -74,7 +74,7 @@ export default function Calculators() {
             </label>
             <input
               type="number"
-              value={profile.weight}
+              value={isNaN(profile.weight) ? '' : profile.weight}
               onChange={(e) => handleProfileChange('weight', parseFloat(e.target.value))}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               min="20"
@@ -89,7 +89,7 @@ export default function Calculators() {
             </label>
             <input
               type="number"
-              value={profile.height}
+              value={isNaN(profile.height) ? '' : profile.height}
               onChange={(e) => handleProfileChange('height', parseFloat(e.target.value))}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900"
               min="100"
@@ -123,7 +123,7 @@ export default function Calculators() {
           <h3 className="text-lg font-bold mb-3 text-gray-900">Body Mass Index (BMI)</h3>
           <div className="text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">
-              {bmiResult.bmi}
+              {isNaN(bmiResult.bmi) ? '--' : bmiResult.bmi}
             </div>
             <div className={`text-sm font-bold px-3 py-1 rounded-full inline-block ${
               bmiResult.isHealthy ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'
@@ -141,7 +141,7 @@ export default function Calculators() {
           <h3 className="text-lg font-bold mb-3 text-gray-900">Basal Metabolic Rate (BMR)</h3>
           <div className="text-center">
             <div className="text-3xl font-bold text-green-600 mb-2">
-              {bmrResult.bmr}
+              {isNaN(bmrResult.bmr) ? '--' : bmrResult.bmr}
             </div>
             <div className="text-gray-900 font-medium text-sm">
               calories/day
@@ -157,7 +157,7 @@ export default function Calculators() {
           <h3 className="text-lg font-bold mb-3 text-gray-900">Total Daily Energy Expenditure</h3>
           <div className="text-center">
             <div className="text-3xl font-bold text-purple-600 mb-2">
-              {tdeeResult.tdee}
+              {isNaN(tdeeResult.tdee) ? '--' : tdeeResult.tdee}
             </div>
             <div className="text-gray-900 font-medium text-sm">
               calories/day
@@ -209,7 +209,7 @@ export default function Calculators() {
         </div>
         <div className="text-center">
           <div className="text-2xl font-bold text-orange-600">
-            {goalCalories} calories/day
+            {isNaN(goalCalories) ? '--' : goalCalories} calories/day
           </div>
           <p className="text-gray-900 font-medium text-sm mt-2">
             {weightGoal === 'lose' && 'Target deficit of 500 calories for ~1 lb/week loss'}
